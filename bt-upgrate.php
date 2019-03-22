@@ -30,7 +30,7 @@
     echo $calculator->calculate(new Add(), 1, 2);
 
     try{
-        $calculator->calculate(new Divide(), 5, 0);
+        echo $calculator->calculate(new Divide(), 5, 2);
     }catch (Exception $e){
         echo $e->getMessage();
     }
