@@ -1,87 +1,44 @@
 <?php
-
-   interface plus{
-       public function plus();
-   }
-   
-
-   interface minus{
-       public function minus();
-   }
-   
-
-   interface multiply{
-       public function multiply();
-   }
-    
-   interface divide{
-       public function divide();
-   }
-   
-   
-   class data{
-        protected $a;
-        protected $b;
-        protected $kq;
-        
-        public function setData($x, $z){
-          $this->a = $x;
-          $this->b = $z;
+    class Dien{
+        public $arr = [];
+        public function register(Tinh $tinh){
+            array_push($this->arr, $tinh);
         }
-   }
-   
-   
-   
-   class pl extends data implements plus{
-       public function plus(){
-           $this->kq = $this->a + $this->b;
-           return $this->kq;
-       }
-   }
-   
-   
-   class mn extends data implements minus{
-       public function minus(){
-           $this->kq = $this->a - $this->b;
-           return $this->kq;
-       }
-   }
-   
-   
-   class mt extends data implements multiply{
-       public function multiply(){
-           $this->kq = $this->a * $this->b;
-           return $this->kq;
-       }
-   }
-   
-   
-   class dv extends data implements divide{
-       public function divide(){
-       
-           if($this->b == 0){
-           		return "Lỗi";
-           }else{
-           		$this->kq = $this->a / $this->b;
-           		return $this->kq;
-           }
-       }
-   }
-   
-   
-   
-   $pl = new pl;
-   $mn = new mn;
-   $mt = new mt;
-   $dv = new dv;
-   
-   $pl->setData(12,2);
-   $mn->setData(120,2);
-   $mt->setData(122,2);
-   $dv->setData(120,2);
-   
-   echo "Tổng: ". $pl->plus()."<br>";
-   echo "Hiệu: ".$mn->minus()."<br>";
-   echo "Tích: ".$mt->multiply()."<br>";
-   echo "Thương: ".$dv->divide()."<br>";
+
+        public function tinhTienDien($n1, $n2){
+            for($i = 0; $i < count($this->arr); $i++){
+                if($this->arr[$i]->canHandle($n2 - $n1)){
+                    return $this->arr[$i]->operate($n1, $n2);
+                }
+            }
+        }
+    }
+
+    interface Tinh{
+        public function canHandle($num);
+        public function operate($n1, $n2);
+    }
+
+
+    class One implements Tinh{
+
+        public $inter = 3500;
+        public function canHandle($num){
+            if($num <= 100){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public function operate($n1, $n2){
+            return ($n2 - $n1) * $this->inter;
+        }
+    }
+
+
+
+    $tt = new Dien();
+    $tt->register(new One);
+    print_r($tt->tinhTienDien(50, 150));
 ?>
