@@ -10,10 +10,10 @@ class Calculator {
 
 
 let caculator = new Calculator();
-let firstNumber = parseInt(process.argv[2], 10);
-let secondNumber = parseInt(process.argv[3], 10);
-console.log(caculator.calculate(new mutilply(), firstNumber, secondNumber));
+let firstNumber = process.argv[2];
+let secondNumber = process.argv[3];
 
+console.log(caculator.calculate(new mutilply(), firstNumber, secondNumber));
 try {
     console.log(caculator.calculate(new divide(), firstNumber, secondNumber));
 }catch(e) {

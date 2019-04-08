@@ -1,9 +1,9 @@
 class Divide {
     operate(firstNumber, secondNumber){
         if(secondNumber === 0){
-            throw('abc');
+            throw('SecondNumber other 0');
         }else{
-            return firstNumber/secondNumber;
+            return parseInt(firstNumber)/parseInt(secondNumber);
         }
     }
 }
