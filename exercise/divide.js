@@ -3,7 +3,7 @@ class Divide {
         if(secondNumber === 0){
             throw('SecondNumber other 0');
         }else{
-            return parseInt(firstNumber)/parseInt(secondNumber);
+            return firstNumber/secondNumber;
         }
     }
 }
