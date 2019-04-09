@@ -1,10 +1,10 @@
-const Mutilply = require('./mutilply');
-const Divide = require('./divide');
-const Koa = require('koa');
+const Mutilply   = require('./mutilply');
+const Divide     = require('./divide');
+const Koa        = require('koa');
 const Calculator = require('./caculator');
 
-const app   = new Koa();
-const calculate = new Calculator();
+const app        = new Koa();
+const calculate  = new Calculator();
 
 
 const numberMiddleware = async (context, next) => {
