@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Demo Nunjucks</title>
+    </head>
+    <body>
+        <div align="center">
+            <table border="1" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td>ID</td>
+                    <td>Name</td>
+                </tr>
+                {%for item in data%}
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan = 2>no find data !</td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+    </body>
+</html>
