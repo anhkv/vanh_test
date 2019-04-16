@@ -1,8 +1,8 @@
 
 const nunjucks = require('nunjucks');
-const Koa = require('koa');
-const Router = require('koa-router');
-const knex = require('./config');
+const Koa      = require('koa');
+const Router   = require('koa-router');
+const knex     = require('./config');
 
 const app  = new Koa();
 var router = new Router();
